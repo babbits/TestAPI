@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "4ac03f3e-b975-4fca-a581-ea4f1bf2af95",
+		"name": "backend test API updated",
+		"description": "tech test to create a fictional product.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SetupProducts123",
+			"item": [
+				{
+					"name": "testAPI_PostProduct1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lavender heart\",\r\n    \"price\": 9.25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testAPI_PostProduct2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"name\": \"Personalised cufflinks\",\r\n    \"price\": 45.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testAPI_PostProduct3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kids T-shirt\",\r\n    \"price\": 19.95\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "initial_state",
+			"item": [
+				{
+					"name": "Get initial state",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "93ba89ce-748f-46a3-8c11-84c3aa4c7d5f",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests['Length of array'] = jsonData.length === 3;",
+									"tests[\"First product name\"] = jsonData[0].name === \"Lavender heart\";",
+									"tests[\"First product price\"] = jsonData[0].price === \"9.25\";",
+									"tests[\"First product id\"] = jsonData[0].id === 1;",
+									"",
+									"tests[\"Second product name\"] = jsonData[1].name === \"Personalised cufflinks\";",
+									"tests[\"Second product price\"] = jsonData[1].price === \"45.00\";",
+									"tests[\"Second product id\"] = jsonData[1].id === 2;",
+									"",
+									"tests[\"Third product name\"] = jsonData[2].name === \"Kids T-shirt\";",
+									"tests[\"Third product price\"] = jsonData[2].price === \"19.95\";",
+									"tests[\"Third product id\"] = jsonData[2].id === 3;",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"var schema = {",
+									" \"type\":\"array\",",
+									" \"items\": {",
+									"\t\"properties\": {",
+									"\t\t\"id\": {",
+									"\t\t\t\"type\": \"integer\",",
+									"\t\t\t\"example\": 1,",
+									"\t\t\t\"description\": \"the id of the product\"",
+									"\t\t},",
+									"\t\t\"price\": {",
+									"\t\t\t\"type\": \"string\",",
+									"\t\t\t\"example\": 9.25,",
+									"\t\t\t\"description\": \"price, in pounds\"",
+									"\t\t},",
+									"\t\t\"name\": {",
+									"\t\t\t\"type\": \"string\",",
+									"\t\t\t\"example\": \"Lavender heart\",",
+									"\t\t\t\"description\": \"the name of the product\"",
+									"\t\t}",
+									"\t},",
+									"\t\"description\": \"A product\",",
+									"        \"required\":[\"id\",\"price\",\"name\"]",
+									" }",
+									"};",
+									"",
+									"",
+									"console.log(tv4.error);",
+									"tests[\"Valid Data1\"] = tv4.validate(jsonData, schema);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						},
+						"description": "Return a list of products"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Create a single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "906b6e1b-0114-49f6-b045-569a95389145",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TestName\",\r\n    \"price\": 9.93\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Product name\"] = jsonData.name === \"TestName\";",
+									"tests[\"Product price\"] = jsonData.price === \"9.93\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get non-existent product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"400"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "678a7180-14a8-4356-a280-5e60359b6261",
+								"exec": [
+									"tests[\"Status code is 204\"] = responseCode.code === 204;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"UpdatedTestName\",\r\n    \"price\": 9.93\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Update a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a nonexistent product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75927723-bf03-4325-8480-9ffae434c718",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 402,\r\n    \"name\": \"UpdatedTestName\",\r\n    \"price\": 9.93\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/402",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"402"
+							]
+						},
+						"description": "Update a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get single product again",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Product name\"] = jsonData.name === \"UpdatedTestName\";",
+									"tests[\"Product price\"] = jsonData.price === \"9.93\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "size",
+									"value": "original",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Delete a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete non-existent product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "size",
+									"value": "original",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Delete a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm deletion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 404\"] = responseCode.code === 404;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product",
+								"4"
+							]
+						},
+						"description": "Return a single product"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for product",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Get final state",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8558c3f9-3714-46ca-b922-7088cd5fa774",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests['Length of array'] = jsonData.length === 3;",
+									"tests[\"First product name\"] = jsonData[0].name === \"Lavender heart\";",
+									"tests[\"First product price\"] = jsonData[0].price === \"9.25\";",
+									"tests[\"First product id\"] = jsonData[0].id === 1;",
+									"",
+									"tests[\"Second product name\"] = jsonData[1].name === \"Personalised cufflinks\";",
+									"tests[\"Second product price\"] = jsonData[1].price === \"45.00\";",
+									"tests[\"Second product id\"] = jsonData[1].id === 2;",
+									"",
+									"tests[\"Third product name\"] = jsonData[2].name === \"Kids T-shirt\";",
+									"tests[\"Third product price\"] = jsonData[2].price === \"19.95\";",
+									"tests[\"Third product id\"] = jsonData[2].id === 3;",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"var schema = {",
+									" \"type\":\"array\",",
+									" \"items\": {",
+									"\t\"properties\": {",
+									"\t\t\"id\": {",
+									"\t\t\t\"type\": \"integer\",",
+									"\t\t\t\"example\": 1,",
+									"\t\t\t\"description\": \"the id of the product\"",
+									"\t\t},",
+									"\t\t\"price\": {",
+									"\t\t\t\"type\": \"string\",",
+									"\t\t\t\"example\": 9.25,",
+									"\t\t\t\"description\": \"price, in pounds\"",
+									"\t\t},",
+									"\t\t\"name\": {",
+									"\t\t\t\"type\": \"string\",",
+									"\t\t\t\"example\": \"Lavender heart\",",
+									"\t\t\t\"description\": \"the name of the product\"",
+									"\t\t}",
+									"\t},",
+									"\t\"description\": \"A product\",",
+									"        \"required\":[\"id\",\"price\",\"name\"]",
+									" }",
+									"};",
+									"",
+									"",
+									"console.log(tv4.error);",
+									"tests[\"Valid Data1\"] = tv4.validate(jsonData, schema);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"product"
+							]
+						},
+						"description": "Return a list of products"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for products",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

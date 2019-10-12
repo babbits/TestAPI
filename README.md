@@ -14,5 +14,6 @@ Instructions to create data and run tests:
 3)  From a terminal window pointed to the 'Testapi' Folder run 'dotnet ef database update' to completion to create the 'TestAPI' SQL database, SSMS can be used to check and query the table and data.
 4)  From a terminal window pointed to the 'Testapi' Folder run 'dotnet run'
 5) open swagger using https://localhost/5000/swagger/
-6)  Open Postman and import 'backend test API updated.postman' file located within the 'Testapi' .net folder
-7)  Within Postman run 'backend test API updated' as a collection, this will activate Postman Collection runner: if your environment already has products 1 to 3 set up then untick scripts located in the 'SetupProducts123' folder:  Postman Collection runner will show 'backend test API updated', the folder 'SetupProducts123' within the collection will set up inital products data, if your environment already has products 1 to 3 set up then untick scripts located in the 'SetupProducts123.
+6)  Open Postman and import 'DatabaseDataSetup.postman' and 'tests.postman' files located within the 'Testapi' .net folder
+7)  Within Postman run 'DatabaseDataSetup.postman' as a collection to load products 1 to 3.  If you already have products 1 to 3 in your database proceed to point 8.
+8)  Within Postman run 'tests.postman' as a collection to run the test scripts.

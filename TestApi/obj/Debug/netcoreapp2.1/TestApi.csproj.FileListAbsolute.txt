@@ -1,0 +1,14 @@
+C:\Users\btreg\OneDrive\Desktop\Babs\DotNetCore\TestApi\obj\Debug\netcoreapp2.1\TestApi.csprojAssemblyReference.cache
+C:\Users\btreg\OneDrive\Desktop\Babs\DotNetCore\TestApi\obj\Debug\netcoreapp2.1\TestApi.csproj.CoreCompileInputs.cache
+C:\Users\btreg\OneDrive\Desktop\Babs\DotNetCore\TestApi\obj\Debug\netcoreapp2.1\TestApi.RazorAssemblyInfo.cache
+C:\Users\btreg\OneDrive\Desktop\Babs\DotNetCore\TestApi\obj\Debug\netcoreapp2.1\TestApi.RazorAssemblyInfo.cs
+C:\Users\btreg\OneDrive\Desktop\Babs\DotNetCore\TestApi\obj\Debug\netcoreapp2.1\TestApi.AssemblyInfoInputs.cache
+C:\Users\btreg\OneDrive\Desktop\Babs\DotNetCore\TestApi\obj\Debug\netcoreapp2.1\TestApi.AssemblyInfo.cs
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\bin\Debug\netcoreapp2.1\TestApi.deps.json
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\bin\Debug\netcoreapp2.1\TestApi.runtimeconfig.json
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\bin\Debug\netcoreapp2.1\TestApi.runtimeconfig.dev.json
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\bin\Debug\netcoreapp2.1\TestApi.dll
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\bin\Debug\netcoreapp2.1\TestApi.pdb
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\obj\Debug\netcoreapp2.1\TestApi.RazorTargetAssemblyInfo.cache
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\obj\Debug\netcoreapp2.1\TestApi.dll
+C:\Users\btreg\onedrive\desktop\babs\dotnetcore\testapi\obj\Debug\netcoreapp2.1\TestApi.pdb
